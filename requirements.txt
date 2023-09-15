@@ -1,6 +1,7 @@
 pandas
 tqdm
 bs4
+lxml
 requests
 pathlib
 -e .
