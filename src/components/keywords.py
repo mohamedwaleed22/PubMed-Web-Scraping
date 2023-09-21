@@ -1,6 +1,6 @@
 import requests 
 from bs4 import BeautifulSoup
-
+from src.utils import getCountry, extract_country_names
 
 
 
@@ -19,10 +19,26 @@ def affKeyword(page: str):
     authorss = authorlist[0].find_all('span', class_='authors-list-item')
 
     affiliation_dict = {}
+    c = []
+
     for author in authorss:
         name = author.find('a', class_='full-name').text
         affiliation_texts = [text['title'] for text in author.find_all('a', class_='affiliation-link')]
         affiliation_dict[name] = affiliation_texts
+
+        x = author.find_all('a', class_='affiliation-link')
+        for link in x:
+            title = link['title']
+            countries = extract_country_names(str(title))
+            if countries == 0:
+                continue
+            else:
+
+                c.append(countries)
+        
+    country = getCountry(c)
+
+
 
 
     # keywords 
@@ -33,4 +49,4 @@ def affKeyword(page: str):
     keywords_text = ','.join(keywords_text).replace(".", "")
 
     
-    return affiliation_dict, keywords_text
+    return affiliation_dict, keywords_text, country
