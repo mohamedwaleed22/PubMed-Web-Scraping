@@ -37,7 +37,7 @@ def main():
     print("="*35)
 
     if answer == 'yes' or answer == 'y': 
-        saveFile = str(input("Please provide the path of the file with .csv extension"))
+        saveFile = str(input("Please provide the path of the file with .csv extension: "))
 
         filepath = Path(saveFile)
         filepath.parent.mkdir(parents=True, exist_ok=True)
