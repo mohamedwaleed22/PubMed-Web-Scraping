@@ -35,9 +35,10 @@ def affKeyword(page: str):
             else:
 
                 c.append(countries)
-        
-    country = getCountry(c)
-
+    if c:
+        country = getCountry(c)
+    else:
+        country = ''
 
 
 
