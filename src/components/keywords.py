@@ -50,4 +50,4 @@ def affKeyword(page: str):
     keywords_text = ','.join(keywords_text).replace(".", "")
 
     
-    return affiliation_dict, keywords_text, country
+    return keywords_text, country , affiliation_dict

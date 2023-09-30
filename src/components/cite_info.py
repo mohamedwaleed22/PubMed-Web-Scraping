@@ -10,14 +10,31 @@ import re
 def citeInfo(citations: list):
     
     cite_list = citations
-
+    
+    authors = ''
+    title = ''
+    journal = ''
+    pmid = ''
+    pmcid = ''
+    firstAuth = ''
+    citation = ''
 
     if len(cite_list) >= 6:
-        
-        if "Epub" in cite_list[5] or "Erratum in:" in cite_list[5]:
+
+        if "Epub" in cite_list[5] or "Erratum" in cite_list[5]:
             cite_list.pop(5)
-            
-    
+        
+
+        if "Epub" in cite_list[5] or "Erratum" in cite_list[5]:
+            cite_list.pop(5)
+
+        if "Retraction in:" in cite_list[5]:
+            cite_list.pop(5)
+
+        if "Update in:" in cite_list[5]:
+            cite_list.pop(5)
+        
+
         if len(cite_list) == 7:
 
 
@@ -138,6 +155,23 @@ def citeInfo(citations: list):
 
         firstAuth = cite_list[0].split(",")[0]
         citation = '. '.join(cite_list[2:-1])
+    
+    
+    elif len(cite_list) == 4:
+        authors = cite_list[0]
+        title = cite_list[1]
 
-    return authors, title, journal, doi, pmid, pmcid, firstAuth, citation, pubDate
+        pmcid = ''
+        journal = ''
+
+        pmid = re.findall("PMID: (\d*)", cite_list[3])
+        pmid = pmid.pop().removesuffix('.')
+        citation = '. '.join(cite_list[1:-1])
+        doi = ''
+        pub_year = ''
+        pubDate = pub_year
+
+        firstAuth = cite_list[0].split(",")[0]
+
+    return authors, title, journal, pmid, pmcid, firstAuth, citation, doi, pubDate
 

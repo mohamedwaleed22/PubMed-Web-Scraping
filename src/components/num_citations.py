@@ -15,7 +15,16 @@ def get_citations(pmid):
     if num:
 
         num = num[0].find("span", {'class': 'value'})
-        num = int(num.text) - 1
-        return num
+        if num:
+                
+            if len(num.text) > 3:
+                num = ''.join(num.text.split(','))
+                num = int(num) -1
+            else:
+
+                num = int(num.text) - 1
+            return num
+        else:
+            return 0
     else:
         return 0

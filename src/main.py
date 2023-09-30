@@ -32,6 +32,7 @@ def main():
 
     print("There are {} empty pages in the research results".format(len(emptyPages)))
     print("="*35)
+    print(emptyPages)
 
     answer = str(input("Do you want to save the results in a csv file format? Yes/No: ").strip()).lower()
     print("="*35)
@@ -57,6 +58,7 @@ def main():
 ## Example Input
 # https://pubmed.ncbi.nlm.nih.gov/?term=(cancer*%20OR%20carcinoma*%20OR%20neoplasms*%20OR%20sarcoma*%20OR%20tumor*%20OR%20tumour*%20OR%20lymphoma*%20OR%20leukemia*%20OR%20leukaemia*%20OR%20malignan*)%20AND%20(caveolin*)&filter=simsearch1.fha&filter=years.2023-2023
 
+# https://pubmed.ncbi.nlm.nih.gov/?term=%28%28%22milk*%22%5BTitle%2FAbstract%5D+OR+%22blood*%22%5BTitle%2FAbstract%5D+OR+%22urine*%22%5BTitle%2FAbstract%5D+OR+%22saliva*%22%5BTitle%2FAbstract%5D+OR+%22salivary*%22%5BTitle%2FAbstract%5D+OR+%22body+fluid*%22%5BTitle%2FAbstract%5D+OR+%22body+fluids*%22%5BTitle%2FAbstract%5D+OR+%22physiological+fluid*%22%5BTitle%2FAbstract%5D+OR+%22physiological+fluids*%22%5BTitle%2FAbstract%5D%29+AND+%28%22exosomes*%22%5BTitle%2FAbstract%5D+OR+%22exosome*%22%5BTitle%2FAbstract%5D+OR+%22Extracellular+vesicles*%22%5BTitle%2FAbstract%5D+OR+%22EVs%22%5BTitle%2FAbstract%5D+OR+%22exosomal*%22%5BTitle%2FAbstract%5D+OR+%22Microvesicles*%22%5BTitle%2FAbstract%5D%29%29+AND+%28%22cancer*%22%5BTitle%2FAbstract%5D+OR+%22carcinoma*%22%5BTitle%2FAbstract%5D+OR+%22neoplasms*%22%5BTitle%2FAbstract%5D+OR+%22sarcoma*%22%5BTitle%2FAbstract%5D+OR+%22tumor*%22%5BTitle%2FAbstract%5D+OR+%22tumour*%22%5BTitle%2FAbstract%5D+OR+%22lymphoma*%22%5BTitle%2FAbstract%5D+OR+%22leukemia*%22%5BTitle%2FAbstract%5D+OR+%22leukeamia*%22%5BTitle%2FAbstract%5D+OR+%22malignant*%22%5BTitle%2FAbstract%5D%29&filter=lang.english&filter=years.2003-2024
 
 if __name__ == '__main__':
     main()
